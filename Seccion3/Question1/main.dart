@@ -1,48 +1,129 @@
 import 'dart:io';
+// import 'addingFunction.dart';
+// import 'devisionFunction.dart';
+// import 'multiplicationFunction.dart';
+// import 'subtractionFunction.dart';
 
 void main() {
-  print("Enter two numbers:");
-  double num1 = double.parse(stdin.readLineSync()!);
-  double num2 = double.parse(stdin.readLineSync()!);
+//   print('How many numbers do you want to calculate?');
+//   int numbersOfDigits = int.parse(stdin.readLineSync()!);
+//   while (numbersOfDigits <= 0) {
+//     print('Please enter a valid number');
+//     numbersOfDigits = int.parse(stdin.readLineSync()!);
+//   }
+//   List<num> sum = [];
+//   for (int? index; index! <= numbersOfDigits; index++) {
+//     print('Enter your Number $index:');
+//     num num1 = num.parse(stdin.readLineSync()!);
+//     while (num1 == 0) {
+//       print('Please enter a valid number');
+//       num1 = num.parse(stdin.readLineSync()!);
+//     }
+//     print(
+//         'What is the mathematical operation you want to perform? Addition, subtraction, division, multiplication?');
+//     String mathematicalOpreations = stdin.readLineSync()!;
 
-  print("Addition: ${add(num1, num2)}");
-  print("Subtraction: ${subtract(num1, num2)}");
-  print("Multiplication: ${multiply(num1, num2)}");
-  print("Division: ${divide(num1, num2)}");
+//     if (mathematicalOpreations == 'Addition') {
+//       sum.add(num1++);
+//     } else if (mathematicalOpreations == 'Subtraction') {
+//       sum = subtractionFunction(num1, num1);
+//     } else if (mathematicalOpreations == 'Division') {
+//       sum = divisionFunction(num1, num1);
+//     } else if (mathematicalOpreations == 'Multiplication') {
+//       sum = multiplicationFunction(num1, num1);
+//     }
+//   }
 
-  print("Addition of multiple numbers: ${add(1, 2, 3, 4, 5)}");
-  print("Multiplication of multiple numbers: ${multiply(2, 3, 4)}");
+// ////////////////////////////////////
+// ///////////////////////////////////////
+// /////////////////////////////////////////
+// ////////////////////////////////////
+//   // ///////////////////////////
+//   print('Enter your Number one:');
+//   num num1 = num.parse(stdin.readLineSync()!);
+
+//   print('Enter your Number Two:');
+//   num num2 = num.parse(stdin.readLineSync()!);
+//   print(
+//       'What is the mathematical operation you want to perform? Addition, subtraction, division, multiplication?');
+//   String mathematicalOpreation = stdin.readLineSync()!;
+//   if (mathematicalOpreation == 'Addition') {
+//     print(addingFunction(num1, num2));
+//   } else if (mathematicalOpreation == 'Subtraction') {
+//     print(subtractionFunction(num1, num2));
+//   } else if (mathematicalOpreation == 'Division') {
+//     print(divisionFunction(num1, num2));
+//   } else if (mathematicalOpreation == 'Multiplication') {
+//     print(multiplicationFunction(num1, num2));
+//   }
+//   ;
+
+  print('What type of arithmetic operation do you want?');
+  print('Adding');
+  print('Subtraction');
+  print('Multiplication');
+  print('Division');
+
+  String? operation = stdin.readLineSync();
+
+  print('How many numbers do you want to calculate?');
+  int numbersOfDigits = int.parse(stdin.readLineSync()!);
+  while (numbersOfDigits <= 0) {
+    print('Please enter a valid number');
+    numbersOfDigits = int.parse(stdin.readLineSync()!);
+  }
+
+  // for (int i = 1; i <= numbersOfDigits; i++) {
+  //   print('Enter your Number $i:');
+  //   num num1 = num.parse(stdin.readLineSync()!);
+  //   while (num1 == 0) {
+  //     print('Please enter a valid number');
+  //     num1 = num.parse(stdin.readLineSync()!);
+  //   }
+  //   sum.add(num1);
+  // }
+  //////////////////////////////////////////
+  List sumLoops(List<num> sum) {
+    for (int i = 1; i <= numbersOfDigits; i++) {
+      print('Enter your Number $i:');
+      num num1 = num.parse(stdin.readLineSync()!);
+      while (num1 == 0) {
+        print('Please enter a valid number');
+        num1 = num.parse(stdin.readLineSync()!);
+      }
+      sum.add(num1);
+    }
+    return sum;
+  }
+
+  // ///////////////////////////
+  ///////////di
+  List<num> sum = [];
+  sumLoops(sum);
+  ifStatment(operation!, sum);
+
+  /////////////////////////////////
+  // if (operation == 'Adding') {
+  //   print(sum.reduce((value, element) => (value + element)));
+  // } else if (operation == 'Subtraction') {
+  //   print(sum.reduce((value, element) => (value - element)));
+  // } else if (operation == 'Multiplication') {
+  //   print(sum.reduce((value, element) => (value / element)));
+  // } else if (operation == 'Division') {
+  //   print(sum.reduce((value, element) => (value * element)));
+  // }
 }
 
-double add(double num1, [double? num2, double? num3]) {
-  double sum = num1;
-  if (num2 != null) {
-    sum += num2;
+String ifStatment(String operation, List<num> sum) {
+  if (operation == 'Adding') {
+    print(sum.reduce((value, element) => (value + element)));
+  } else if (operation == 'Subtraction') {
+    print(sum.reduce((value, element) => (value - element)));
+  } else if (operation == 'Multiplication') {
+    print(sum.reduce((value, element) => (value / element)));
+  } else if (operation == 'Division') {
+    print(sum.reduce((value, element) => (value * element)));
   }
-  if (num3 != null) {
-    sum += num3;
-  }
-  return sum;
-}
 
-double subtract(double num1, double num2) {
-  return num1 - num2;
-}
-
-double multiply(double num1, [double? num2, double? num3]) {
-  double product = num1;
-  if (num2 != null) {
-    product *= num2;
-  }
-  if (num3 != null) {
-    product *= num3;
-  }
-  return product;
-}
-
-double divide(double num1, double num2) {
-  if (num2 == 0) {
-    throw ArgumentError("Division by zero");
-  }
-  return num1 / num2;
+  return operation;
 }
