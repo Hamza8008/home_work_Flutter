@@ -1,18 +1,20 @@
-import 'dart:io';
-
 void main() {
-  print('How many numbers do you want to calculate?');
-  int numbersOfDigits = int.parse(stdin.readLineSync()!);
-  while (numbersOfDigits <= 0) {
-    print('Please enter a valid number');
-    numbersOfDigits = int.parse(stdin.readLineSync()!);
+  List<String> groceryItems = ['Coofee', 'lamp'];
+  addinggroceryItems(item: 'Milk', groceryItems: groceryItems);
+  remoinggroceryItems(item: 'Coofee', groceryItems: groceryItems);
+  for (var item in groceryItems) {
+    print(item);
   }
-  for (int? index; index! <= numbersOfDigits; index++) {
-    print('Enter your Number $index:');
-    num num1 = num.parse(stdin.readLineSync()!);
-    while (num1 == 0) {
-      print('Please enter a valid number');
-      num1 = num.parse(stdin.readLineSync()!);
-    }
-  }
+}
+
+List addinggroceryItems(
+    {required String item, required List<String> groceryItems}) {
+  groceryItems.add(item);
+  return groceryItems;
+}
+
+List remoinggroceryItems(
+    {required String item, required List<String> groceryItems}) {
+  groceryItems.remove(item);
+  return groceryItems;
 }

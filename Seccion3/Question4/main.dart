@@ -1,10 +1,28 @@
+import 'dart:io';
+
 void main() {
-  Map<String, dynamic> person = {
-    'name': 'Alice',
-    'age': 25,
-    'city': 'New York',
+  print('Enter the City');
+  String writeCity = stdin.readLineSync()!;
+  if (writeCity == 'Egypt') {
+    print(weatherRebot().);
+  }
+  //  
+  List<String> nameCites = ['Egypt', 'NewYOurk', 'France', 'Itail'];
+  Map<dynamic, int> weatherApp = {
+    nameCites[0]: 44,
+    nameCites[1]: 50,
+    nameCites[2]: 20,
+    nameCites[3]: 5,
   };
-  print(person['age']);
-  person['city'] = 'Los Angeles';
-  print(person['city']);
+}
+
+Map weatherRebot() {
+  List<String> nameCites = ['Egypt', 'NewYOurk', 'France', 'Itail'];
+  Map<dynamic, int> weatherApp = {
+    nameCites[0]: 44,
+    nameCites[1]: 50,
+    nameCites[2]: 20,
+    nameCites[3]: 5,
+  };
+  return weatherRebot();
 }

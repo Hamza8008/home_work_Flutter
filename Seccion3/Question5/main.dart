@@ -1,12 +1,18 @@
 void main() {
-  int x, y;
-  x = 50;
-  y = 30;
-  bool value = true;
-  if (x < y) {
-    print(value);
-  } else {
-    value = false;
-    print(value);
-  }
+  AppBar(icon: '', hight: 0, sized: 0, text: '', width: 0).hight;
+}
+
+class AppBar {
+  String icon;
+  String text;
+  double hight;
+  double width;
+  double sized;
+  AppBar({
+    required this.icon,
+    required this.hight,
+    required this.sized,
+    required this.text,
+    required this.width,
+  });
 }
